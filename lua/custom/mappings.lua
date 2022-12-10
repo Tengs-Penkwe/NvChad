@@ -47,7 +47,6 @@ function MoveToNextTab()
 	exe "b".l:cur_buf
 endfunc
 ]])
-
 M.general = {
   n = {
     [";"] = { ":", "command mode", opts = { nowait = true } },
@@ -63,25 +62,26 @@ M.general = {
 
   i = {
     -- brackets 
-    ["{\\"] = {"{<CR>}<Esc>O"},
-    ["{<Tab>"] = {"{};<Esc>o"},
-    ["[\\"] = {"[<CR>]<Esc>O"},
-    ["[<Tab>"] = {"[];<Esc>o"},
-    ["(\\"] = {"(<CR>)<Esc>O"},
-    ["(<Tab>"] = {"();<Esc>o"},
+    ["{\\"] = {"{<CR>};<Esc>O"},
+    ["{<Tab>"] = {"{};<Left><Left>"},
+    ["[\\"] = {"[<CR>];<Esc>O"},
+    ["[<Tab>"] = {"[];<Left><Left>"},
+    ["(\\"] = {"(<CR>);<Esc>O"},
+    ["(<Tab>"] = {"();<Left><Left>"},
 
     -- scroll
     -- ["<C-E>"] = {"<C-X><C-E>"},
     ["<C-Y>"] = {"<C-X><C-Y>"},
-
   },
 }
 
+-- more keybinds!
 -- Abbrevations
 vim.cmd([[
 " Write Annoation Quickly
 iabbrev /*! 
-			\/***** *****<CR><BS>*****************************/<Up><Left><Left><Left><Left><Left><Left>
+			\/***** *****<CR>
+      \*****************************/<Up><Left><Left><Left><Left><Left><Left>
 iabbrev /** 
 			\/**/
 			\<Left><Left>
@@ -107,7 +107,5 @@ iabbrev #t typedef
 -- cabbrev('grep', 'silent grep!')
 -- cabbrev('Review', 'DiffviewOpen')
 
-
--- more keybinds!
 
 return M

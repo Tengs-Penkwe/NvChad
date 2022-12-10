@@ -2,12 +2,6 @@ local overrides = require "custom.plugins.overrides"
 
 return {
 
-  ["dense-analysis/ale"] = {
-    config = function()
-      require "custom.plugins.ale"
-    end,
-  },
-
   -- ["goolord/alpha-nvim"] = { disable = false } -- enables dashboard
 
   -- Override plugin definition options
@@ -47,6 +41,9 @@ return {
     end,
   },
 
+  ["ziglang/zig.vim"] = {},
+
   -- remove plugin
   -- ["hrsh7th/cmp-path"] = false,
+  ["dense-analysis/ale"] = false, --{ },
 }
