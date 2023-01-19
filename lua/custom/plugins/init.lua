@@ -34,6 +34,7 @@ return {
   },
 
   -- code formatting, linting etc
+  -- ["jose-elias-alvarez/null-ls.nvim"] = false,
   ["jose-elias-alvarez/null-ls.nvim"] = {
     after = "nvim-lspconfig",
     config = function()
