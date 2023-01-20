@@ -47,6 +47,7 @@ function MoveToNextTab()
 	exe "b".l:cur_buf
 endfunc
 ]])
+
 M.general = {
   n = {
     [";"] = { ":", "command mode", opts = { nowait = true } },
@@ -73,6 +74,12 @@ M.general = {
     -- ["<C-E>"] = {"<C-X><C-E>"},
     ["<C-Y>"] = {"<C-X><C-Y>"},
   },
+
+  v = {
+    -- It's very very annoying, sometime I pressed y to yank it, but it changes the code !!!
+    ["u"] = {""},
+    ["U"] = {""},
+  }
 }
 
 -- more keybinds!
